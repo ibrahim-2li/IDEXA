@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E7 GROUP Clone</title>
+    <title>IDEXA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -18,7 +18,7 @@
 </head>
 
 <body
-    class="antialiased bg-white text-gray-900 font-sans selection:bg-[#00d0d6] selection:text-white pb-0 m-0 overflow-x-hidden">
+    class="antialiased bg-white text-gray-900 font-sans selection:bg-[#115597] selection:text-white pb-0 m-0 overflow-x-hidden">
     @php
         $settings = \App\Models\SiteSetting::first() ?? new \App\Models\SiteSetting([
             'site_name' => 'E7 GROUP',
@@ -41,41 +41,42 @@
     @endphp
     <!-- Navbar -->
     <nav
-        class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md text-white border-b border-white/10 transition-all">
+        class="fixed top-0 left-0 w-full z-50 bg-black/100 backdrop-blur-md text-white border-b border-white/10 transition-all">
         <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
             <!-- Logo -->
             <a href="/" class="flex items-center gap-1 group">
                 <span
-                    class="text-[#00d0d6] text-[1.7rem] font-bold tracking-tighter group-hover:text-white transition-colors">{{ $nameParts[0] ?? '' }}</span>
+                    class="text-[#115597] text-[1.7rem] font-bold tracking-tighter group-hover:text-white transition-colors"><img
+                        src="/images/IDEXA.png" alt="Logo" class="w-16 h-16" /></span>
                 <span
-                    class="text-white text-[1.1rem] font-medium tracking-tight group-hover:text-[#00d0d6] transition-colors mt-[2px]">{{ $nameParts[1] ?? '' }}</span>
+                    class="text-white text-[1.1rem] font-medium tracking-tight group-hover:text-[#115597] transition-colors mt-[2px]">{{ $nameParts[1] ?? '' }}</span>
             </a>
 
             <!-- Desktop Links -->
             <div class="hidden lg:flex items-center gap-8 text-[13px] font-medium tracking-wide">
-                <a href="/about-us" class="hover:text-[#00d0d6] hover:-translate-y-0.5 transition-all">About us</a>
-                <a href="/areas-of-expertise" class="hover:text-[#00d0d6] hover:-translate-y-0.5 transition-all">Areas
+                <a href="/about-us" class="hover:text-[#115597] hover:-translate-y-0.5 transition-all">About us</a>
+                <a href="/areas-of-expertise" class="hover:text-[#115597] hover:-translate-y-0.5 transition-all">Areas
                     of
                     expertise</a>
-                <a href="/our-commitment" class="hover:text-[#00d0d6] hover:-translate-y-0.5 transition-all">Our
+                <a href="/our-commitment" class="hover:text-[#115597] hover:-translate-y-0.5 transition-all">Our
                     commitment</a>
                 <a href="/investor-relations"
-                    class="hover:text-[#00d0d6] hover:-translate-y-0.5 transition-all">Investor
+                    class="hover:text-[#115597] hover:-translate-y-0.5 transition-all">Investor
                     relations</a>
-                <a href="/careers" class="hover:text-[#00d0d6] hover:-translate-y-0.5 transition-all">Careers</a>
+                <a href="/careers" class="hover:text-[#115597] hover:-translate-y-0.5 transition-all">Careers</a>
             </div>
 
             <!-- Right Actions -->
             <div class="flex items-center gap-6">
                 <!-- Search Icon -->
-                <button class="hover:text-[#00d0d6] transition-colors">
+                <button class="hover:text-[#115597] transition-colors">
                     <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
                     </svg>
                 </button>
                 <a href="/contact"
-                    class="hidden sm:inline-flex items-center justify-center px-6 py-[0.6rem] border border-[#00d0d6] text-white hover:bg-[#00d0d6]/10 transition-all text-sm font-medium tracking-wide">Contact</a>
+                    class="hidden sm:inline-flex items-center justify-center px-6 py-[0.6rem] border border-[#115597] text-white hover:bg-[#115597]/10 transition-all text-sm font-medium tracking-wide">Contact</a>
             </div>
         </div>
     </nav>
@@ -83,7 +84,8 @@
     <!-- Hero Section -->
     <header class="relative h-screen min-h-[600px] w-full flex items-end">
         <div class="absolute inset-0 z-0">
-            <img src="/images/hero.png" alt="Industrial Printer Background" class="w-full h-full object-cover" />
+            <video src="https://e7group.ae/public/assets/img/banner/home_banner.mp4" class="w-full h-full object-cover"
+                autoplay loop muted playsinline poster="/images/hero.png"></video>
             <div
                 class="absolute inset-0 bg-gradient-to-t from-[#0a111a] via-[#0a111a]/60 to-black/30 mix-blend-multiply">
             </div>
@@ -116,7 +118,7 @@
 
                 <div>
                     <a href="#"
-                        class="inline-flex items-center justify-center px-8 py-[0.7rem] border border-[#00d0d6] text-[#00d0d6] hover:bg-[#00d0d6] hover:text-white transition-all text-sm font-medium rounded-sm tracking-wide group">
+                        class="inline-flex items-center justify-center px-8 py-[0.7rem] border border-[#115597] text-[#115597] hover:bg-[#115597] hover:text-white transition-all text-sm font-medium rounded-sm tracking-wide group">
                         View more
                     </a>
                 </div>
@@ -154,9 +156,9 @@
             <h2 class="text-3xl lg:text-[2.2rem] font-medium tracking-tight text-gray-900 leading-none">Areas of
                 expertise</h2>
             <a href="#"
-                class="text-[13px] font-medium text-gray-900 hover:text-[#00d0d6] transition-colors flex items-center gap-2 tracking-wide">
+                class="text-[13px] font-medium text-gray-900 hover:text-[#115597] transition-colors flex items-center gap-2 tracking-wide">
                 See all
-                <svg class="w-[14px] h-[14px] text-[#00d0d6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-[14px] h-[14px] text-[#115597]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
                 </svg>
             </a>
@@ -167,42 +169,42 @@
         @endphp
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
             @foreach($expertiseCards as $card)
-            <div class="group flex flex-col h-full bg-white cursor-pointer relative overflow-hidden">
-                <div class="overflow-hidden aspect-[1.4] w-full mb-6">
-                    <img src="{{ $card->image ?? '/images/security.png' }}" alt="{{ $card->title }}"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <div class="group flex flex-col h-full bg-white cursor-pointer relative overflow-hidden">
+                    <div class="overflow-hidden aspect-[1.4] w-full mb-6">
+                        <img src="{{ $card->image ?? '/images/security.png' }}" alt="{{ $card->title }}"
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                    </div>
+                    <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">{{ $card->title }}</h3>
+                    <p class="text-gray-700 text-[14px] leading-[1.6] mb-4 {{ !$card->description_2 ? 'flex-grow' : '' }}">
+                        {{ $card->description_1 }}
+                    </p>
+                    @if($card->description_2)
+                        <p class="text-gray-700 text-[14px] leading-[1.6] mb-8 flex-grow">
+                            {{ $card->description_2 }}
+                        </p>
+                    @else
+                        <div class="mb-4"></div>
+                    @endif
+                    <div class="mt-auto pt-4">
+                        <a href="{{ $card->link }}"
+                            class="inline-flex items-center justify-center px-6 py-2.5 border border-[#115597] text-[#115597] hover:bg-[#115597] hover:text-white transition-all text-[13px] font-medium tracking-wide">Contact
+                            Us</a>
+                    </div>
                 </div>
-                <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">{{ $card->title }}</h3>
-                <p class="text-gray-700 text-[14px] leading-[1.6] mb-4 {{ !$card->description_2 ? 'flex-grow' : '' }}">
-                    {{ $card->description_1 }}
-                </p>
-                @if($card->description_2)
-                <p class="text-gray-700 text-[14px] leading-[1.6] mb-8 flex-grow">
-                    {{ $card->description_2 }}
-                </p>
-                @else
-                <div class="mb-4"></div>
-                @endif
-                <div class="mt-auto pt-4">
-                    <a href="{{ $card->link }}"
-                        class="inline-flex items-center justify-center px-6 py-2.5 border border-[#00d0d6] text-[#00d0d6] hover:bg-[#00d0d6] hover:text-white transition-all text-[13px] font-medium tracking-wide">Contact
-                        Us</a>
-                </div>
-            </div>
             @endforeach
         </div>
 
         <div class="flex items-center justify-between border-t border-gray-200 pt-5">
             <div class="flex gap-4">
                 <button
-                    class="text-[#00d0d6] hover:text-[#00b0b5] transition-colors flex items-center justify-center h-8 w-8 hover:-translate-x-1 duration-200">
+                    class="text-[#115597] hover:text-[#00b0b5] transition-colors flex items-center justify-center h-8 w-8 hover:-translate-x-1 duration-200">
                     <svg class="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                 </button>
                 <button
-                    class="text-[#00d0d6] hover:text-[#00b0b5] transition-colors flex items-center justify-center h-8 w-8 hover:translate-x-1 duration-200">
+                    class="text-[#115597] hover:text-[#00b0b5] transition-colors flex items-center justify-center h-8 w-8 hover:translate-x-1 duration-200">
                     <svg class="w-[22px] h-[22px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -235,7 +237,7 @@
             </h2>
             <div class="mt-4">
                 <a href="#"
-                    class="inline-flex items-center justify-center px-10 py-[1rem] border border-[#00d0d6]/70 bg-black/30 backdrop-blur-sm text-white hover:bg-[#00d0d6] hover:border-[#00d0d6] transition-all text-sm font-semibold tracking-wider rounded-sm shadow-xl hover:shadow-[#00d0d6]/20 group">
+                    class="inline-flex items-center justify-center px-10 py-[1rem] border border-[#115597]/70 bg-black/30 backdrop-blur-sm text-white hover:bg-[#115597] hover:border-[#115597] transition-all text-sm font-semibold tracking-wider rounded-sm shadow-xl hover:shadow-[#115597]/20 group">
                     View more
                 </a>
             </div>
@@ -248,8 +250,8 @@
             class="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div class="flex flex-col gap-6">
                 <a href="/" class="flex items-center gap-1 group w-max">
-                    <span class="text-[#00d0d6] text-[2rem] font-bold tracking-tighter">{{ $nameParts[0] ?? '' }}</span>
-                    <span class="text-white text-[1.2rem] font-medium tracking-tight mt-[3px]">{{ $nameParts[1] ?? '' }}</span>
+                    <span class="text-[#115597] text-[2rem] font-bold tracking-tighter"><img
+                            src="/images/IDEXA-black.png" alt="Logo" class="w-32 h-32" /></span>
                 </a>
                 <p class="text-gray-500 leading-relaxed max-w-xs text-[13px]">
                     {{ $settings->footer_text }}
@@ -278,14 +280,14 @@
                 </p>
                 <div class="flex items-center gap-4 mt-4">
                     <!-- Social icons placeholders -->
-                    <a href="#" class="text-gray-500 hover:text-[#00d0d6] transition-colors">
+                    <a href="#" class="text-gray-500 hover:text-[#115597] transition-colors">
                         <!-- Twitter/X -->
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                         </svg>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-[#00d0d6] transition-colors">
+                    <a href="#" class="text-gray-500 hover:text-[#115597] transition-colors">
                         <!-- LinkedIn -->
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
