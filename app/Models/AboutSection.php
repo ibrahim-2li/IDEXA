@@ -14,5 +14,11 @@ class AboutSection extends Model
         'p1',
         'p2',
         'image',
+        'about_us_heading',
+        'about_us_p1',
+        'about_us_p2',
+        'about_us_highlight_title',
+        'about_us_highlight_text',
+        'about_us_image',
     ];
 }

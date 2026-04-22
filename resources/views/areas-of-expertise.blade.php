@@ -10,58 +10,50 @@
     <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
         <h2 class="text-4xl md:text-5xl font-black mb-16 text-center tracking-tight text-gray-900 uppercase">Our Business Units</h2>
         
+        @php
+            $areas = \App\Models\ExpertiseArea::all();
+            $withImage = $areas->whereNotNull('image');
+            $withoutImage = $areas->whereNull('image');
+        @endphp
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
             
+            @foreach($withImage as $area)
             <div class="group">
                 <div class="aspect-[16/9] w-full overflow-hidden mb-6 relative">
-                    <img src="/images/security.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="e7 Security">
+                    <img src="{{ $area->image }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{{ $area->title }}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                        <h3 class="text-3xl font-bold text-white uppercase tracking-wider">e7 Security</h3>
+                        <h3 class="text-3xl font-bold text-white uppercase tracking-wider">{{ $area->title }}</h3>
                     </div>
                 </div>
                 <p class="text-gray-700 leading-relaxed text-lg">
-                    Leverages the latest in secure printing to protect sensitive personal and corporate data. It serves sectors including banking, government, telecom, retail, and transport with advanced security and personalization solutions.
+                    {{ $area->description_1 }}
                 </p>
-            </div>
-
-            <div class="group">
-                <div class="aspect-[16/9] w-full overflow-hidden mb-6 relative">
-                    <img src="/images/packaging.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="e7 Packaging">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                        <h3 class="text-3xl font-bold text-white uppercase tracking-wider">e7 Packaging</h3>
-                    </div>
-                </div>
-                <p class="text-gray-700 leading-relaxed text-lg">
-                    Focuses on innovative and environmentally friendly solutions using state-of-the-art technologies to meet the global movement for sustainable production.
+                @if($area->description_2)
+                <p class="text-gray-700 leading-relaxed text-lg mt-2">
+                    {{ $area->description_2 }}
                 </p>
+                @endif
             </div>
+            @endforeach
 
-            <div class="group">
-                <div class="aspect-[16/9] w-full overflow-hidden mb-6 relative bg-gray-100">
-                    <img src="/images/printing.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="e7 Printing">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                        <h3 class="text-3xl font-bold text-white uppercase tracking-wider">e7 Printing</h3>
-                    </div>
-                </div>
-                <p class="text-gray-700 leading-relaxed text-lg">
-                    A regional powerhouse and trusted partner for publishing sectors (newspapers, magazines, books), out-of-home print projects, and educational materials.
-                </p>
-            </div>
-
+            @if($withoutImage->count() > 0)
             <div class="flex flex-col justify-center space-y-12 pl-0 lg:pl-12">
+                @foreach($withoutImage as $area)
                 <div class="border-l-4 border-[#00d0d6] pl-6 bg-gray-50 py-6 pr-6 rounded">
-                    <h3 class="text-2xl font-bold mb-3 uppercase tracking-wide">e7 Education</h3>
+                    <h3 class="text-2xl font-bold mb-3 uppercase tracking-wide">{{ $area->title }}</h3>
                     <p class="text-gray-700 leading-relaxed">
-                        Established in 2019 to provide UAE educational institutions with the best innovative products, solutions, and consultations to develop the educational system to globally competitive levels.
+                        {{ $area->description_1 }}
                     </p>
-                </div>
-                <div class="border-l-4 border-[#00d0d6] pl-6 bg-gray-50 py-6 pr-6 rounded">
-                    <h3 class="text-2xl font-bold mb-3 uppercase tracking-wide">Tawzea by e7</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Delivers the next generation of distribution and logistics services, streamlining supply chains to maximize efficiency.
+                    @if($area->description_2)
+                    <p class="text-gray-700 leading-relaxed mt-2">
+                        {{ $area->description_2 }}
                     </p>
+                    @endif
                 </div>
+                @endforeach
             </div>
+            @endif
 
         </div>
     </section>

@@ -162,70 +162,34 @@
             </a>
         </div>
 
+        @php
+            $expertiseCards = \App\Models\ExpertiseArea::all();
+        @endphp
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
-            <!-- Card 1 -->
+            @foreach($expertiseCards as $card)
             <div class="group flex flex-col h-full bg-white cursor-pointer relative overflow-hidden">
                 <div class="overflow-hidden aspect-[1.4] w-full mb-6">
-                    <img src="/images/security.png" alt="Security Card"
+                    <img src="{{ $card->image ?? '/images/security.png' }}" alt="{{ $card->title }}"
                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 </div>
-                <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">SECURITY</h3>
-                <p class="text-gray-700 text-[14px] leading-[1.6] mb-4 flex-grow">
-                    e7 Security leverages the latest in secure printing to protect sensitive personal and corporate
-                    data. We serve diverse sectors, including banking, government, telecom, retail, hospitality, and
-                    transport, delivering advanced security and personalization solutions.
+                <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">{{ $card->title }}</h3>
+                <p class="text-gray-700 text-[14px] leading-[1.6] mb-4 {{ !$card->description_2 ? 'flex-grow' : '' }}">
+                    {{ $card->description_1 }}
                 </p>
-                <p class="text-gray-700 text-[14px] leading-[1.6] mb-8">
-                    As a leader in secure printing and identity management, we support governments and global businesses
-                    with reliable, end-to-end data protection solutions.
-                </p>
-                <div>
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-6 py-2.5 border border-[#00d0d6] text-[#00d0d6] hover:bg-[#00d0d6] hover:text-white transition-all text-[13px] font-medium tracking-wide">Contact
-                        Us</a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="group flex flex-col h-full bg-white cursor-pointer relative overflow-hidden">
-                <div class="overflow-hidden aspect-[1.4] w-full mb-6">
-                    <img src="/images/packaging.png" alt="Packaging"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                </div>
-                <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">PACKAGING</h3>
+                @if($card->description_2)
                 <p class="text-gray-700 text-[14px] leading-[1.6] mb-8 flex-grow">
-                    Like all industries in the 21st century, print needs to adapt to answer the future demands of
-                    clients and meet the global movement for more sustainable production. Packaging is ahead of the
-                    curve, using state-of-the-art technologies to produce innovative and environmentally friendly
-                    solutions to a diverse range of packaging.
+                    {{ $card->description_2 }}
                 </p>
-                <div>
-                    <a href="#"
+                @else
+                <div class="mb-4"></div>
+                @endif
+                <div class="mt-auto pt-4">
+                    <a href="{{ $card->link }}"
                         class="inline-flex items-center justify-center px-6 py-2.5 border border-[#00d0d6] text-[#00d0d6] hover:bg-[#00d0d6] hover:text-white transition-all text-[13px] font-medium tracking-wide">Contact
                         Us</a>
                 </div>
             </div>
-
-            <!-- Card 3 -->
-            <div class="group flex flex-col h-full bg-white cursor-pointer relative overflow-hidden">
-                <div class="overflow-hidden aspect-[1.4] w-full mb-6">
-                    <img src="/images/printing.png" alt="Printing"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                </div>
-                <h3 class="text-lg font-bold uppercase tracking-wide mb-4 text-gray-900">PRINTING</h3>
-                <p class="text-gray-700 text-[14px] leading-[1.6] mb-8 flex-grow">
-                    e7 Printing is a long-established regional powerhouse, a trusted partner across a range of
-                    publishing sectors that include newspapers, magazines and books, as well as large scale out-of-home
-                    print projects and educational materials. We constantly upgrade our print equipment so all our
-                    clients can rest assured that we'll always deliver the world-class premium service their print
-                    projects deserve.
-                </p>
-                <div>
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-6 py-2.5 border border-[#00d0d6] text-[#00d0d6] hover:bg-[#00d0d6] hover:text-white transition-all text-[13px] font-medium tracking-wide">Contact
-                        Us</a>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <div class="flex items-center justify-between border-t border-gray-200 pt-5">

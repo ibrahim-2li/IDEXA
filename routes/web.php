@@ -25,6 +25,16 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/contacts', [\App\Http\Controllers\ContactSubmissionController::class, 'index'])->name('admin.contacts.index');
     Route::delete('admin/contacts/{contact}', [\App\Http\Controllers\ContactSubmissionController::class, 'destroy'])->name('admin.contacts.destroy');
 
+    // Expertise Areas Admin
+    Route::resource('admin/expertise', \App\Http\Controllers\ExpertiseAreaController::class)->except(['show'])->names([
+        'index' => 'admin.expertise.index',
+        'create' => 'admin.expertise.create',
+        'store' => 'admin.expertise.store',
+        'edit' => 'admin.expertise.edit',
+        'update' => 'admin.expertise.update',
+        'destroy' => 'admin.expertise.destroy',
+    ]);
+
     // Landing About Admin
     Route::get('admin/about', [\App\Http\Controllers\AboutSectionController::class, 'edit'])->name('admin.about.edit');
     Route::put('admin/about', [\App\Http\Controllers\AboutSectionController::class, 'update'])->name('admin.about.update');
