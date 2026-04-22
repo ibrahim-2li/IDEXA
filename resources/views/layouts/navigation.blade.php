@@ -21,6 +21,12 @@
                     <x-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
                         {{ __('Submissions') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.about.edit')" :active="request()->routeIs('admin.about.*')">
+                        {{ __('Landing About') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.settings.edit')" :active="request()->routeIs('admin.settings.*')">
+                        {{ __('Settings') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -81,6 +87,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
                 {{ __('Submissions') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.about.edit')" :active="request()->routeIs('admin.about.*')">
+                {{ __('Landing About') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.settings.edit')" :active="request()->routeIs('admin.settings.*')">
+                {{ __('Settings') }}
             </x-responsive-nav-link>
         </div>
 

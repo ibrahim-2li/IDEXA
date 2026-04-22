@@ -24,6 +24,14 @@ Route::middleware('auth')->group(function () {
     // Contact Submissions Admin
     Route::get('admin/contacts', [\App\Http\Controllers\ContactSubmissionController::class, 'index'])->name('admin.contacts.index');
     Route::delete('admin/contacts/{contact}', [\App\Http\Controllers\ContactSubmissionController::class, 'destroy'])->name('admin.contacts.destroy');
+
+    // Landing About Admin
+    Route::get('admin/about', [\App\Http\Controllers\AboutSectionController::class, 'edit'])->name('admin.about.edit');
+    Route::put('admin/about', [\App\Http\Controllers\AboutSectionController::class, 'update'])->name('admin.about.update');
+
+    // Site Settings Admin
+    Route::get('admin/settings', [\App\Http\Controllers\SiteSettingController::class, 'edit'])->name('admin.settings.edit');
+    Route::put('admin/settings', [\App\Http\Controllers\SiteSettingController::class, 'update'])->name('admin.settings.update');
 });
 
 require __DIR__.'/auth.php';

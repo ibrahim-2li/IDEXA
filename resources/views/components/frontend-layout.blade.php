@@ -13,13 +13,24 @@
     </style>
 </head>
 <body class="antialiased bg-white text-gray-900 font-sans selection:bg-[#00d0d6] selection:text-white pb-0 m-0 overflow-x-hidden flex flex-col min-h-screen">
+    @php
+        $settings = \App\Models\SiteSetting::first() ?? new \App\Models\SiteSetting([
+            'site_name' => 'E7 GROUP',
+            'hero_title' => "TRUSTED \nSOLUTIONS FOR \nYOUR BUSINESS \nACROSS THE UAE",
+            'contact_email' => 'info@e7group.ae',
+            'contact_phone' => '+971 2 000 0000',
+            'address' => "Abu Dhabi\nUnited Arab Emirates\nPO Box 123456",
+            'footer_text' => 'Trusted solutions for your business across the UAE. We provide seamless integration from identity security to packaging and printing.'
+        ]);
+        $nameParts = explode(' ', $settings->site_name, 2);
+    @endphp
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/95 text-white border-b border-white/10 transition-all shadow-xl">
         <div class="w-full px-6 md:px-12 h-20 flex items-center justify-between">
             <!-- Logo -->
             <a href="/" class="flex items-center gap-1 group">
-                <span class="text-[#00d0d6] text-[1.7rem] font-bold tracking-tighter group-hover:text-white transition-colors">e7</span>
-                <span class="text-white text-[1.1rem] font-medium tracking-tight group-hover:text-[#00d0d6] transition-colors mt-[2px]">GROUP</span>
+                <span class="text-[#00d0d6] text-[1.7rem] font-bold tracking-tighter group-hover:text-white transition-colors">{{ $nameParts[0] ?? '' }}</span>
+                <span class="text-white text-[1.1rem] font-medium tracking-tight group-hover:text-[#00d0d6] transition-colors mt-[2px]">{{ $nameParts[1] ?? '' }}</span>
             </a>
             
             <!-- Desktop Links -->
@@ -52,11 +63,11 @@
         <div class="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div class="flex flex-col gap-6">
                 <a href="/" class="flex items-center gap-1 group w-max">
-                    <span class="text-[#00d0d6] text-[2rem] font-bold tracking-tighter">e7</span>
-                    <span class="text-white text-[1.2rem] font-medium tracking-tight mt-[3px]">GROUP</span>
+                    <span class="text-[#00d0d6] text-[2rem] font-bold tracking-tighter">{{ $nameParts[0] ?? '' }}</span>
+                    <span class="text-white text-[1.2rem] font-medium tracking-tight mt-[3px]">{{ $nameParts[1] ?? '' }}</span>
                 </a>
                 <p class="text-gray-500 leading-relaxed max-w-xs text-[13px]">
-                    Trusted solutions for your business across the UAE. We provide seamless integration from identity security to packaging and printing.
+                    {{ $settings->footer_text }}
                 </p>
             </div>
             
@@ -77,9 +88,7 @@
             <div class="flex flex-col gap-4">
                 <h4 class="text-white font-semibold uppercase tracking-wide mb-2">Address</h4>
                 <p class="text-gray-500 leading-relaxed text-[13px]">
-                    Abu Dhabi<br>
-                    United Arab Emirates<br>
-                    PO Box 123456
+                    {!! nl2br(e($settings->address)) !!}
                 </p>
                 <div class="flex items-center gap-4 mt-4">
                     <!-- Social icons placeholders -->

@@ -8,6 +8,14 @@
     </div>
 
     <section class="max-w-[1200px] mx-auto px-6 md:px-12 py-24">
+        @php
+            $settings = \App\Models\SiteSetting::first() ?? new \App\Models\SiteSetting([
+                'site_name' => 'E7 GROUP',
+                'contact_email' => 'info@e7group.ae',
+                'contact_phone' => '+971 2 000 0000',
+                'address' => "Abu Dhabi\nUnited Arab Emirates\nPO Box 123456",
+            ]);
+        @endphp
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24">
             
             <!-- Contact Information -->
@@ -20,14 +28,14 @@
                 <div class="space-y-8">
                     <div>
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Corporate Headquarters</h4>
-                        <p class="text-black font-semibold">E7 Group PJSC</p>
-                        <p class="text-gray-600">Abu Dhabi, United Arab Emirates<br>PO Box 123456</p>
+                        <p class="text-black font-semibold">{{ current(explode(' ', $settings->site_name, 2)) }} Group PJSC</p>
+                        <p class="text-gray-600">{!! nl2br(e($settings->address)) !!}</p>
                     </div>
 
                     <div>
                         <h4 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">General Inquiries</h4>
-                        <p class="text-[#00d0d6] hover:text-black transition-colors font-medium">info@e7group.ae</p>
-                        <p class="text-gray-600">+971 2 000 0000</p>
+                        <p class="text-[#00d0d6] hover:text-black transition-colors font-medium"><a href="mailto:{{ $settings->contact_email }}">{{ $settings->contact_email }}</a></p>
+                        <p class="text-gray-600">{{ $settings->contact_phone }}</p>
                     </div>
 
                     <div>
